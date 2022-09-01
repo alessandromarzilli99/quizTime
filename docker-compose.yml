@@ -88,8 +88,7 @@ services:
 ##############################################################################
 
   worker_1:
-    #build: ./docker/worker
-    image: andrear632/worker
+    build: ./docker/worker
     container_name: worker_1
     environment:
       - PORT=3001
@@ -104,8 +103,7 @@ services:
     restart: always
      
   worker_2:
-    #build: ./docker/worker
-    image: andrear632/worker
+    build: ./docker/worker
     container_name: worker_2
     environment:
       - PORT=3002
@@ -119,8 +117,7 @@ services:
     restart: always
   
   worker_3:
-    #build: ./docker/worker
-    image: andrear632/worker
+    build: ./docker/worker
     container_name: worker_3
     environment:
       - PORT=3003
@@ -138,8 +135,7 @@ services:
 ##############################################################################
 
   admin-server:
-    #build: ./docker/admin-server
-    image: andrear632/adminserver
+    build: ./docker/admin-server
     container_name: admin-server
     environment:
       - PORT=3000
