@@ -28,7 +28,7 @@ async function send(){
         }
         else {
             var data = {'correct':correct, 'qn':questionnumber};
-            var url = "http://localhost:3000/start";
+            var url = "https://localhost:443/start";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
@@ -52,7 +52,7 @@ async function send(){
 async function end(){
 
             var data = {'game':'end'};
-            var url = "http://localhost:3000/end";
+            var url = "https://localhost:443/end";
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {

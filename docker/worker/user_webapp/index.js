@@ -16,15 +16,16 @@ function init(){
     }
     else if(!localStorage.hasOwnProperty("time")){
         localStorage["time"] = Date.now();
-    }  
+    }
 }
 
 function openws(){
-    socket = new WebSocket("ws://localhost:8081/ws");
+    socket = new WebSocket("ws://localhost:80/ws");
 
     socket.onopen = function(e) {
         if (localStorage.hasOwnProperty('id') && localStorage["nickname"]==document.getElementById("nick").value){
-            res = {'exist': localStorage['id']}
+            res = {'exist': localStorage['id'],
+                    'nick': localStorage['nickname']}
             socket.send(JSON.stringify(res))
         }
         else {

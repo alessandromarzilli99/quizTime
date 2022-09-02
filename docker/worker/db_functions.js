@@ -2,15 +2,19 @@ const { Client } = require('@elastic/elasticsearch')
 const client = new Client({ node: 'http://elasticsearch:9200' })
 
 async function create(id, nick) {
-
-    await client.create({
-      index: 'game',
-      id: id,
-      body: {
-        nickname: nick,
-        score: 0
-      }
-    })
+    try {
+      await client.create({
+        index: 'game',
+        id: id,
+        body: {
+          nickname: nick,
+          score: 0
+        }
+      })
+    }
+    catch (error) {
+      console.log("error")
+    }
   
 }
 
@@ -47,15 +51,20 @@ async function update_questions(id, letter){
 
 
 async function get(id) {
+  try{
+    const { body } = await client.get({
+      index: 'game',
+      id: id
+    })
 
-  const { body } = await client.get({
-    index: 'game',
-    id: id
-  })
-
-  score = body._source.score
+    score = body._source.score
+    
+    return score;
+  }
+  catch {
+    console.log("errore nella chiamata get al db")
+  }
   
-  return score;
 }
 
 
