@@ -98,12 +98,21 @@ app.ws('/ws', (ws, req) => {
         ws.send(JSON.stringify(res))
     })
 
-    amqp.eventemitter.on("end", async function(data){
-        score = await db.get(id)
-        console.log(score)
-        res = {'end': score}
-        ws.send(JSON.stringify(res))
-        ws.close()
+    amqp.eventemitter.once("end", async function(data){
+        try {
+            score = await db.get(id)
+            console.log(score)
+            res = {'end': score}
+            ws.send(JSON.stringify(res))
+            ws.close()
+            setTimeout(function () {
+                amqp.eventemitter.removeAllListeners("end");
+                amqp.eventemitter.removeAllListeners("start")
+            }, 2000)
+        }
+        catch{
+            console.log("errore")
+        }
     })
 
 
