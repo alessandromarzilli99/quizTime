@@ -20,4 +20,4 @@ Technologies we plan to use:
 <!--
 <img src="newschema.png" width="800"> 
 -->
-<img src="https://lh3.googleusercontent.com/d/1F6Gt38LjMWu5dS4F0HRSNV2ShNFkqkv2">
+<img src="https://lh3.googleusercontent.com/d/1wedwECWmi5LJwpLzf4FVEeILspV-eulT">
