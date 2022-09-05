@@ -51,6 +51,11 @@ async function send(){
 
 async function end(){
 
+            localStorage['lastQuestion'] = "1"
+            document.getElementById("question").value=1
+            document.getElementById("btn1").disabled = true;
+            document.getElementById("btn2").disabled = true;
+
             var data = {'game':'end'};
             var url = "https://localhost:443/end";
             const response = await fetch(url, {
@@ -60,12 +65,15 @@ async function end(){
                 },
                 body: JSON.stringify(data) // body data type must match "Content-Type" header
             });
+
+            
+
             response.json().then((data) => {
                 alert(data.msg)
+                document.getElementById("btn1").disabled = false;
+                document.getElementById("btn2").disabled = false;
             })
 
-            localStorage['lastQuestion'] = "1"
-            document.getElementById("question").value=1
 
 }
 
@@ -78,13 +86,11 @@ function setQN(){
 }
 
 function timeo(remaining){
-    if (remaining==0) {
+    if (remaining==-1) {
         document.getElementById("question").value=(parseInt(questionnumber)+1).toString()
         localStorage["lastQuestion"] = document.getElementById("question").value
         document.getElementById("btn1").disabled = false;
         document.getElementById("btn2").disabled = false;
-    }
-    if (remaining==-1) {
         return
     }
     document.getElementById("countdown").innerHTML = remaining
