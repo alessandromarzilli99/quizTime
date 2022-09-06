@@ -21,4 +21,4 @@ Technologies we plan to use:
 <!--
 <img src="newschema.png" width="800"> 
 -->
-<img src="https://lh3.googleusercontent.com/d/1wedwECWmi5LJwpLzf4FVEeILspV-eulT">
+<img src="https://lh3.googleusercontent.com/d/1q5JnkuTBy4Vqy0xRsl7eiPvuR5x0gICO">
