@@ -6,6 +6,8 @@ var names = fs.readFileSync('names.csv').toString().split(",");
 var lett = ["A", "B", "C", "D"]
 var count=0;
 
+const NUM = 100;
+
 function openws(){
     var nickname;
     var id;
@@ -62,6 +64,6 @@ function openws(){
     };
 }
 
-for (i=0; i<1000; i++){
+for (i=0; i<NUM; i++){
     openws()
 }
