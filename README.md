@@ -15,7 +15,7 @@ Technologies we plan to use:
 - Admin server in NodeJS
 - HTML, JS and Bootstrap to create the web interfaces
 
-# How to deploy the system
+## How to deploy the system
 To run the application locally, clone the repository and launch the command “docker-compose up” inside the main folder. The admin interface will be available at https://localhost:443 and the player interface will be available at http://localhost:80.
 
 To run the project on AWS Elastic Container Service, first create a Load Balancer in AWS EC2. In the "docker-compose_cloud.yml" file replace the ARN of your load balancer in the the second line. Then, replace the domain name "localhost" in the files "docker/worker/user_webapp/index.js", "docker/webserver-admin/admin_webapp/index.js", "docker/webserver-admin/admin_webapp/index.html" and "docker/webserver-admin/nginx/default.conf". Build the images "adminwebserver" and "worker" using the respective dockerfiles and upload them to dockerhub. Replace the names of the images you have just built in the "docker-compose_cloud.yml" file. 
